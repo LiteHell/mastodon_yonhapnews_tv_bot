@@ -1,0 +1,4 @@
+.env
+.env*
+*.db
+mastodon_yonhapnews_tv_bot
