@@ -76,7 +76,7 @@ func crawl_worker(this *Bot) {
 
 		// wait delay
 		log.Print("Waiting for delay...\n")
-		time.Sleep(5000 * time.Second)
+		time.Sleep(5000 * time.Millisecond)
 	}
 }
 
