@@ -1,0 +1,6 @@
+.env
+.env*
+*.db
+
+# binary built file
+mastodon_yonhapnews_tv_bot 
