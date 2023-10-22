@@ -39,11 +39,11 @@ func postNewsFeedItem(mastodon *madon.Client, feedItem *gofeed.Item) (status *ma
 
 	// Post news
 	return mastodon.PostStatus(
-		feedItem.Description,
+		fmt.Sprintf("%s\n%s", feedItem.Title, feedItem.Link), // feedItem.Description,
 		0,
 		medias,
 		false,
-		fmt.Sprintf("%s\n%s", feedItem.Title, feedItem.Link),
+		"", //fmt.Sprintf("%s\n%s", feedItem.Title, feedItem.Link),
 		"public",
 	)
 }
