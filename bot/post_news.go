@@ -29,6 +29,9 @@ func postNewsFeedItem(mastodon *madon.Client, feedItem *gofeed.Item) (status *ma
 		// Upload media
 		attachment, err := mastodon.UploadMedia(fileName, fmt.Sprintf("썸네일 이미지 (%s)", feedItem.Title), "")
 
+		// Delete temporary file
+		os.Remove(tmpFile.Name())
+
 		// Use uploaded media if there's no error
 		if err == nil {
 			medias = []int64{attachment.ID}
