@@ -66,12 +66,13 @@ func crawl_worker(this *Bot) {
 
 		// Post them
 		log.Printf("Total %d items to post\n", len(itemsToPost))
-		for _, i := range itemsToPost {
-			_, err = this.db.Exec("INSERT INTO news VALUES (?)", i.GUID)
+		for i := len(itemsToPost) - 1; i >= 0; i-- {
+			item := itemsToPost[i]
+			_, err = this.db.Exec("INSERT INTO news VALUES (?)", item.GUID)
 			if err != nil {
 				panic(err)
 			}
-			this.itemChan <- i
+			this.itemChan <- item
 		}
 
 		// wait delay
