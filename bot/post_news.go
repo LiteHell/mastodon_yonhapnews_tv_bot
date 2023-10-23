@@ -47,6 +47,6 @@ func postNewsFeedItem(mastodon *madon.Client, feedItem *gofeed.Item) (status *ma
 		medias,
 		false,
 		"", //fmt.Sprintf("%s\n%s", feedItem.Title, feedItem.Link),
-		"public",
+		"unlisted",
 	)
 }
